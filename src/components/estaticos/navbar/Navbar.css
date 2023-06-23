@@ -1,7 +1,39 @@
+.logo {
+  width: 4rem;
+  padding: 1rem;
+}
+
 .cursor {
   cursor: pointer;
+  padding: 0 1rem;
 }
 
 .text-decoration-none {
   text-decoration: none;
+}
+
+.navegacao {
+  background-color: #e6af25 !important;
+}
+
+.sb {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menuText {
+  color: #6F0911;
+  font-size: 1rem !important;
+  transition: all 200ms ease-in-out;
+}
+
+.menuText:hover {
+  color: #090909;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  color: #6F0911;
 }
