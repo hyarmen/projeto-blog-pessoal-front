@@ -1,0 +1,21 @@
+.cadastroImg {
+  display: block;
+  margin: 0 auto;
+  width: 30rem;
+  padding: 5rem 0 5rem 2rem;
+}
+
+.botao-cancelar {
+  background-color: #e62525 !important;
+  color: #090909 !important;
+  font-family: var(--roboto-mono) !important;
+  font-weight: 700 !important;
+  border: 1px solid #090909 !important;
+  margin-right: 1rem !important;
+}
+
+.botao-cancelar:hover{
+  background-color: #090909 !important;
+  color: #e62525 !important;
+  border: 1px solid #e62525 !important;
+}

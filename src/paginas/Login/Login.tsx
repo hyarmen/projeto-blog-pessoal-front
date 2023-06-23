@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { Grid, Typography, TextField, Button, Link } from "@material-ui/core";
+import { Grid, Typography, TextField, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
-//import { Link, UseNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import "./Login.css";
 //import { UserLogin } from "../../model/UserLogin";
 //import { login } from "../../services/service";
@@ -67,9 +67,11 @@ function Login() {
               className="imputs"
             />
             <Box marginTop={2} textAlign="center">
+              <Link to='/home'>
               <Button type="submit" variant="contained" className="botao-logar">
                 Logar
               </Button>
+              </Link>
             </Box>
           </form>
           <Box display="flex" justifyContent="center" marginTop={3}>
@@ -78,12 +80,14 @@ function Login() {
                 Não tem uma conta?
               </Typography>
             </Box>
+            <Link to='/cadastrousuario' className="text-decorator-none">
             <Typography
               variant="subtitle1"
               className="texto-cadastrar"
             >
               Cadastre-se
             </Typography>
+            </Link>
           </Box>
         </Box>
       </Grid>
