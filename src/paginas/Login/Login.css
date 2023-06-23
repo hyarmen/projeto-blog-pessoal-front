@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=Roboto:wght@300;500;700&display=swap');
+
+:root {
+  --fira-code: 'Fira Code', monospace;
+  --roboto-mono: 'Roboto', sans-serif;
+}
+
+.fundo {
+  background-color: #090909;
+}
+
+.texto-entrar {
+  font-family: var(--fira-code) !important;
+  font-weight: 500 !important;
+  text-align: center;
+  color: #e6af25;
+
+}
+
+.texto-func{
+  color: #44403C;
+  font-family: var(--roboto-mono);
+}
+
+.imputs {
+  background-color: #1C1917;
+  border-radius: 5px;
+  transition: all 300ms ease-in-out;
+}
+
+.imputs:hover {
+  background-color: #44403C;
+}
+
+.botao-logar {
+  background-color: #e6af25 !important;
+  color: #090909 !important;
+  font-family: var(--roboto-mono) !important;
+  font-weight: 700 !important;
+  border: 1px solid #090909 !important;
+}
+
+.botao-logar:hover{
+  background-color: #090909 !important;
+  color: #e6af25 !important;
+  border: 1px solid #e6af25 !important;
+}
+
+.texto-cadastrar {
+  font-family: var(--fira-code) !important;
+  font-weight: 700 !important;
+  color: #e6af25;
+  transition: all 200ms ease-in-out;
+}
+
+.texto-cadastrar:hover {
+  color: #6F0911;
+}
+
 .text-decorator-none{
   text-decoration: none;
+}
+
+.loginImg {
+  display: block;
+  margin: 0 auto;
+  width: 40rem;
+  padding: 5rem 2rem 5rem 0;
 }

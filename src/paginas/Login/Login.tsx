@@ -1,34 +1,62 @@
-import React from "react";
-import { Grid, Typography, TextField, Button } from "@material-ui/core";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Grid, Typography, TextField, Button, Link } from "@material-ui/core";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
+//import { Link, UseNavigate } from "react-router-dom";
 import "./Login.css";
+//import { UserLogin } from "../../model/UserLogin";
+//import { login } from "../../services/service";
+//import useLocalStorage from "react-use-localstorage";
+import loginImg from '../../components/svg/undraw_login fitness.svg'
 
 function Login() {
+  //   const [token, setToken] = useLocalStorage('token')
+  //   const [userLogin, setUserLogin] = useState<UserLogin>(
+  //     {
+  //       id: 0,
+  //       usuario: '',
+  //       senha: '',
+  //       token: ''
+  //     }
+  //   )
+
+  //   function updateModel(e: ChangeEvent<HTMLInputElement>) {
+  //     setUserLogin({
+  //       ...userLogin,
+  //       [e.target.name]: e.target.value
+  //     })
+  //   }
+
+  //   useEffect(() => {
+  //     if(token != '') {
+  //       navigate('/home')
+  //     }
+  //   }, [token])
+
+  //   async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
+  //     e.preventDefault();
+  //     try{
+  //       await login(`usuarios/logar`, userLogin, setToken)
+
+  //     }
+  //   }
+
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
+    <Grid className="fundo" container direction="row" justifyContent="center" alignItems="center">
       <Grid alignItems="center" xs={6}>
         <Box paddingX={20}>
           <form>
             <Typography
-              variant="h3"
-              gutterBottom
-              color="textPrimary"
-              component="h3"
-              align="center"
-              style={{ fontWeight: "bold" }}
-            >
-              Entrar
-            </Typography>
-            <TextField
+              variant="h3" className="texto-entrar">Entrar</Typography>
+            <TextField //value={userLogin.usuario}
               id="usuario"
               label="usuário"
               variant="outlined"
               name="usuario"
               margin="normal"
               fullWidth
+              className="imputs"
             />
-            <TextField
+            <TextField //value={userLogin.senha}
               id="senha"
               label="senha"
               variant="outlined"
@@ -36,26 +64,23 @@ function Login() {
               margin="normal"
               type="password"
               fullWidth
+              className="imputs"
             />
             <Box marginTop={2} textAlign="center">
-              <Link to="/home" className="text-decorator-none">
-                <Button type="submit" variant="contained" color="primary">
-                  Logar
-                </Button>
-              </Link>
+              <Button type="submit" variant="contained" className="botao-logar">
+                Logar
+              </Button>
             </Box>
           </form>
-          <Box display="flex" justifyContent="center" marginTop={2}>
+          <Box display="flex" justifyContent="center" marginTop={3}>
             <Box marginRight={1}>
-              <Typography variant="subtitle1" gutterBottom align="center">
+              <Typography variant="subtitle1" gutterBottom align="center" className="texto-func">
                 Não tem uma conta?
               </Typography>
             </Box>
             <Typography
               variant="subtitle1"
-              gutterBottom
-              align="center"
-              style={{ fontWeight: "bold" }}
+              className="texto-cadastrar"
             >
               Cadastre-se
             </Typography>
@@ -64,15 +89,9 @@ function Login() {
       </Grid>
       <Grid
         xs={6}
-        style={{
-          backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
-          backgroundRepeat: "no-repeat",
-          width: "100vh",
-          minHeight: "100vh",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></Grid>
+      >
+        <img className="loginImg" src={loginImg} alt="desenho de uma mulher negra com cabelos compridos ao vento correndo ao lado de um celular com uma tela com algumas formas geométricas" />
+      </Grid>
     </Grid>
   );
 }
