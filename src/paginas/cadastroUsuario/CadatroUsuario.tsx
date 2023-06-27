@@ -1,10 +1,59 @@
-import React from 'react'
-import './CadastroUsuario.css'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import User from '../../model/User';
+import { cadastroUsuario } from '../../services/service';
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
 import cadastroImg from '../../components/svg/undraw_private_data_re_4eab.svg'
-import { Link } from 'react-router-dom';
+import './CadastroUsuario.css'
 
 function CadastroUsuario() {
+  const navigate = useNavigate();
+  const [confirmarSenha, setConfirmarSenha] = useState<string>("")
+  const [user, setUser] = useState<User>(
+    {
+      id: 0,
+      nome: '',
+      usuario: '',
+      senha: ''
+    })
+
+  const [userResult, setUserResult] = useState<User>(
+    {
+      id: 0,
+      nome: '',
+      usuario: '',
+      senha: ''
+    })
+
+  useEffect(() => {
+    if (userResult.id != 0) {
+      navigate("/login")
+    }
+  }, [userResult])
+
+
+  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+    setConfirmarSenha(e.target.value)
+  }
+
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+
+  }
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (confirmarSenha == user.senha) {
+      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+      alert('Usuario cadastrado com sucesso')
+    } else {
+      alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+    }
+  }
+
   return (
     <Grid className="fundo" container direction='row' justifyContent='center' alignItems='center'>
       <Grid item xs={6}>
@@ -12,24 +61,22 @@ function CadastroUsuario() {
       </Grid>
       <Grid item xs={6} alignItems='center'>
         <Box paddingX={10}>
-          <form>
+          <form onSubmit={onSubmit}>
             <Typography
               variant="h3" className="texto-entrar">Cadastrar</Typography>
-            <TextField id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth className="imputs" />
-            <TextField id="usuario" label="email" variant="outlined" name="usuario" margin="normal" type='email' fullWidth className="imputs" />
-            <TextField id="senha" label="senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth className="imputs" />
-            <TextField id="confirmarSenha" label="confirmar senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth className="imputs" />
+            <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth className="imputs" />
+            <TextField value={user.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="email" variant="outlined" name="usuario" margin="normal" type='email' fullWidth className="imputs" />
+            <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" label="senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth className="imputs" />
+            <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id="confirmarSenha" label="confirmar senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth className="imputs" />
             <Box marginTop={2} textAlign="center">
               <Link to='/login'>
                 <Button variant="contained" className="botao-cancelar">
                   Cancelar
                 </Button>
               </Link>
-              <Link to='/home'>
-                <Button type="submit" variant="contained" className="botao-logar">
-                  Cadastrar
-                </Button>
-              </Link>
+              <Button type="submit" variant="contained" className="botao-logar">
+                Cadastrar
+              </Button>
             </Box>
           </form>
         </Box>
