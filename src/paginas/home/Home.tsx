@@ -1,10 +1,25 @@
-import React from 'react'
-import './Home.css'
-import { Grid, Paper, Button, Typography } from '@material-ui/core'
+import { useEffect } from 'react'
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../components/store/tokens/tokenReducer'
+import { Grid, Button, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
-import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
+import './Home.css'
 
 export default function Home() {
+    const navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+
+    useEffect(() => {
+        if (token == "") {
+            alert("Você precisa estar logado")
+            navigate("/login")
+
+        }
+    }, [token])
   return (
     <>
     <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
