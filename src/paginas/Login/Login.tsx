@@ -1,53 +1,57 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Grid, Typography, TextField, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
-import { Link } from 'react-router-dom';
-import "./Login.css";
-//import { UserLogin } from "../../model/UserLogin";
-//import { login } from "../../services/service";
-//import useLocalStorage from "react-use-localstorage";
+import { Link, useNavigate } from 'react-router-dom';
+import UserLogin from "../../model/UserLogin";
+import useLocalStorage from "react-use-localstorage";
+import { api, login } from "../../services/service";
 import loginImg from '../../components/svg/undraw_login fitness.svg'
+import "./Login.css";
 
 function Login() {
-  //   const [token, setToken] = useLocalStorage('token')
-  //   const [userLogin, setUserLogin] = useState<UserLogin>(
-  //     {
-  //       id: 0,
-  //       usuario: '',
-  //       senha: '',
-  //       token: ''
-  //     }
-  //   )
+  const navigate = useNavigate();
+  const [token, setToken] = useLocalStorage('token')
+  const [userLogin, setUserLogin] = useState<UserLogin>(
+    {
+      id: 0,
+      usuario: '',
+      senha: '',
+      token: ''
+    }
+  )
 
-  //   function updateModel(e: ChangeEvent<HTMLInputElement>) {
-  //     setUserLogin({
-  //       ...userLogin,
-  //       [e.target.name]: e.target.value
-  //     })
-  //   }
+  function updateModel(e: ChangeEvent<HTMLInputElement>) {
+    setUserLogin({
+      ...userLogin,
+      [e.target.name]: e.target.value
+    })
+  }
 
-  //   useEffect(() => {
-  //     if(token != '') {
-  //       navigate('/home')
-  //     }
-  //   }, [token])
+  useEffect(() => {
+    if (token != '') {
+      navigate('/home')
+    }
+  }, [token])
 
-  //   async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
-  //     e.preventDefault();
-  //     try{
-  //       await login(`usuarios/logar`, userLogin, setToken)
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      await login(`/usuarios/logar`, userLogin, setToken)
 
-  //     }
-  //   }
+      alert('Usuário logado com sucesso!');
+    } catch (error) {
+      alert('Usuário não encontrado!');
+    }
+  }
 
   return (
     <Grid className="fundo" container direction="row" justifyContent="center" alignItems="center">
       <Grid alignItems="center" xs={6}>
         <Box paddingX={20}>
-          <form>
+          <form onSubmit={onSubmit}>
             <Typography
               variant="h3" className="texto-entrar">Entrar</Typography>
-            <TextField //value={userLogin.usuario}
+            <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
               id="usuario"
               label="usuário"
               variant="outlined"
@@ -56,7 +60,7 @@ function Login() {
               fullWidth
               className="imputs"
             />
-            <TextField //value={userLogin.senha}
+            <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
               id="senha"
               label="senha"
               variant="outlined"
@@ -67,11 +71,9 @@ function Login() {
               className="imputs"
             />
             <Box marginTop={2} textAlign="center">
-              <Link to='/home'>
               <Button type="submit" variant="contained" className="botao-logar">
                 Logar
               </Button>
-              </Link>
             </Box>
           </form>
           <Box display="flex" justifyContent="center" marginTop={3}>
@@ -81,12 +83,12 @@ function Login() {
               </Typography>
             </Box>
             <Link to='/cadastrousuario' className="text-decorator-none">
-            <Typography
-              variant="subtitle1"
-              className="texto-cadastrar"
-            >
-              Cadastre-se
-            </Typography>
+              <Typography
+                variant="subtitle1"
+                className="texto-cadastrar"
+              >
+                Cadastre-se
+              </Typography>
             </Link>
           </Box>
         </Box>
