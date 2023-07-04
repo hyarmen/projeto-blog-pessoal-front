@@ -1,6 +1,31 @@
-.titulo {
-  color: blue;
+.tituloHome {
+  color: #e6af25;
   text-align: center;
+  font-family: var(--fira-code) !important;
+  font-weight: 500 !important;
+  align-items: center;
+}
+
+.subHome {
+  color: #5DB67D;
+  text-align: center;
+  font-family: var(--roboto-mono) !important;
+  font-weight: 300 !important;
+}
+
+.fundo {
+  background-color: #090909;
+}
+
+.btnesc {
+  background-color: #e6af25 !important;
+  transition: all 200ms ease-in-out;
+}
+
+.btnesc:hover {
+  background-color: #090909 !important;
+  border: 1px solid #e6af25 !important;
+  color: #e6af25;
 }
 
 .imgHome {

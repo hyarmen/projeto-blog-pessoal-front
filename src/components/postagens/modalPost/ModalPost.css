@@ -1,0 +1,14 @@
+.cursor{
+  cursor: pointer;
+}
+
+.btnModal{
+  background-color: #5DB67D !important;
+  transition: all 200ms ease-in-out;
+}
+
+.btnModal:hover {
+  border-color: #5DB67D !important;
+  background-color: #090909 !important;
+  color: #5DB67D;
+}

@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Tema from '../../../model/Tema';
 import { busca } from '../../../services/Service';
-import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
+import { toast } from 'react-toastify';
 import './ListaTema.css';
 
 function ListaTema() {
 
   const [temas, setTemas] = useState<Tema[]>([])
-  const [token, setToken] = useLocalStorage('token');
   const navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  )
 
   useEffect(() => {
       if (token == '') {
-          alert("Você precisa estar logado")
+          toast.warn('Você precisa estar logado!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+            });
           navigate("/login")
       }
   }, [token])
@@ -37,7 +50,7 @@ function ListaTema() {
     <>
     {
       temas.map(tema => (
-      <Box m={2} >
+      <Box>
         <Card variant="outlined">
           <CardContent>
             <Typography color="textSecondary" gutterBottom>

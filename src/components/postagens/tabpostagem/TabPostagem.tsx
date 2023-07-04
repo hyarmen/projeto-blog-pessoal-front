@@ -8,6 +8,7 @@ import './TabPostagem.css';
 
 function TabPostagem() {
     const [value, setValue] = useState('1')
+    // eslint-disable-next-line @typescript-eslint/ban-types
     function handleChange(event: React.ChangeEvent<{}>, newValue: string){
         setValue(newValue);
     }
@@ -15,9 +16,9 @@ function TabPostagem() {
     <>
       <TabContext value={value}>
         <AppBar position="static">
-          <Tabs centered indicatorColor="secondary" onChange={handleChange}>
-            <Tab label="Todas as postagens" value="1"/>
-            <Tab label="Sobre-nós" value="2" />
+          <Tabs centered className='barra' onChange={handleChange}>
+            <Tab className='fc09' label="Todas as postagens" value="1"/>
+            <Tab className='fc09' label="Sobre-nós" value="2" />
           </Tabs>
         </AppBar>
         <TabPanel value="1" >

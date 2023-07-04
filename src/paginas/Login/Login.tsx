@@ -1,12 +1,13 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import UserLogin from "../../model/UserLogin";
-import { api, login } from "../../services/Service";
+import { api, login } from "../../../src/services/Service";
 import { useDispatch } from "react-redux";
-import { addToken } from "../../components/store/tokens/action";
+import { addToken } from "../../store/tokens/action";
 import { Grid, Typography, TextField, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import loginImg from '../../components/svg/undraw_login fitness.svg';
+import { toast } from "react-toastify";
 import "./Login.css";
 
 function Login() {
@@ -31,7 +32,7 @@ function Login() {
 
   useEffect(() => {
     if (token != '') {
-      dispatch(addToken(token))
+      dispatch(addToken(token));
       navigate('/home')
     }
   }, [token])
@@ -41,9 +42,28 @@ function Login() {
     try {
       await login(`/usuarios/logar`, userLogin, setToken)
 
-      alert('Usuário logado com sucesso!');
+      toast.success('Usuário Logado com Sucesso!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      });
+
     } catch (error) {
-      alert('Usuário não encontrado!');
+      toast.error('Dados do usuário não encontrado!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   }
 

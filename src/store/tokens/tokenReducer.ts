@@ -5,7 +5,7 @@ export interface TokenState {
 }
 
 const initialState = {
-  tokens: ''
+  tokens: ""
 }
 
 export const tokenReducer = (state: TokenState = initialState, action: Action) => {

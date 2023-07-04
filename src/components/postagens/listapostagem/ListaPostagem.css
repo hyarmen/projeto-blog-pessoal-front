@@ -1,0 +1,24 @@
+.cardBG{
+  background-color: #1C1917 !important;
+  transition: all 200ms ease-in-out !important;
+}
+
+.cardBG:hover {
+  background-color: #36341d !important;
+}
+
+.colorY {
+  color: #b98707;
+}
+
+.colorW {
+  color: #8a8955;
+}
+
+.btnAtt {
+  background-color: #b98707 !important;
+}
+
+.btnDel {
+  background-color: #6F0911 !important;
+}
