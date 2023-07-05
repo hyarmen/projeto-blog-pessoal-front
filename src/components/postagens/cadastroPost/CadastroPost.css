@@ -1,3 +1,57 @@
 .topo{
   margin-top: 20px;
 }
+
+.tituloCadPost {
+  color: #e6af25;
+  font-family: var(--fira-code) !important;
+}
+
+.btnCadPost {
+  background-color: #5DB67D !important;
+  border: 1px solid #090900 !important;
+  transition: all 200ms ease-in-out;
+}
+
+.btnCadPost:hover {
+  background-color: #090900 !important;
+  border: 1px solid #5DB67D !important;
+  color: #5DB67D;
+}
+
+.textHelp {
+  color: #e6af25 !important;
+}
+
+.MuiMenu-list {
+  background-color: #090900;
+  color: #e6af25;
+  border: 1px solid #e6af25;
+  border-radius: 5px;
+}
+
+.lisTema {
+  transition: all 200ms ease-in-out;
+}
+
+.lisTema:hover {
+  background-color: #e6af25 !important;
+  color: #090900;
+}
+
+.MuiInput-input {
+  color: #e6af25 !important;
+  border-bottom: 1px solid #e6af25 !important;
+}
+
+.MuiInput-input:focus {
+  border-color: #e6af25 !important;
+}
+
+.MuiInputLabel-animated {
+  color: #e6af25 !important;
+}
+
+.closeIcon {
+  color: #e6af25;
+}

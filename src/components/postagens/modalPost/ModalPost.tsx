@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       position: 'absolute',
       width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
+      backgroundColor: "#090909",
+      border: '2px solid #e6af25',
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
@@ -48,7 +48,7 @@ export default function ModalPost() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose} />
+        <CloseIcon className='closeIcon' onClick={handleClose} />
 
       </Box>
 
