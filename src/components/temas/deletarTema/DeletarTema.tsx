@@ -6,7 +6,7 @@ import { TokenState } from "../../../store/tokens/tokenReducer";
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@material-ui/core";
 import { toast } from 'react-toastify';
 import Tema from "../../../model/Tema";
-import './deletarTema.css'
+import './DeletarTema.css'
 
 export default function DeletarTema() {
 
