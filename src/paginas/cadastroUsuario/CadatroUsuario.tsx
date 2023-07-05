@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import User from '../../model/User';
-import { cadastroUsuario } from '../../../src/services/Service';
+import { cadastroUsuario } from '../../Services/Service';
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
 import { toast } from 'react-toastify';
 import cadastroImg from '../../components/svg/undraw_private_data_re_4eab.svg'

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { busca, buscaId, post, put } from '../../../services/Service';
+import { busca, buscaId, post, put } from '../../../Services/Service';
 import Tema from '../../../model/Tema';
 import Postagem from '../../../model/Postagem';
 import { TokenState } from '../../../store/tokens/tokenReducer';

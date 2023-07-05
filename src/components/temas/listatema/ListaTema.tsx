@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Tema from '../../../model/Tema';
-import { busca } from '../../../services/Service';
+import { busca } from '../../../Services/Service';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';

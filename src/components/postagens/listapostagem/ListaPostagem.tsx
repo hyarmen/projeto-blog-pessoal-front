@@ -4,7 +4,7 @@ import { Card, CardActions, CardContent, Button, Typography } from '@material-ui
 import { Box } from '@mui/material';
 import './ListaPostagem.css';
 import Postagem from '../../../model/Postagem';
-import { busca } from '../../../services/Service';
+import { busca } from '../../../Services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';
 import { toast } from 'react-toastify';
