@@ -5,7 +5,7 @@ import React from 'react'
 import Modal from '@material-ui/core/Modal';
 import CloseIcon from '@material-ui/icons/Close';
 import CadastroPost from '../cadastroPost/CadastroPost';
-import './modalPost.css';
+import './ModalPost.css';
 
 
 function getModalStyle() {
