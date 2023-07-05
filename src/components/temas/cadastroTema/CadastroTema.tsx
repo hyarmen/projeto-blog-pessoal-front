@@ -6,7 +6,7 @@ import { TokenState } from "../../../store/tokens/tokenReducer";
 import { Button, Container, TextField, Typography } from "@material-ui/core";
 import { toast } from 'react-toastify';
 import Tema from "../../../model/Tema";
-import './cadastroTema.css';
+import './CadastroTema.css';
 
 export default function CadastroTema() {
 
