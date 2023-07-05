@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { buscaId, post, put } from "../../../Services/Service";
+import { buscaId, post, put } from "../../../service/Service";
 import { TokenState } from "../../../store/tokens/tokenReducer";
 import { Button, Container, TextField, Typography } from "@material-ui/core";
 import { toast } from 'react-toastify';
